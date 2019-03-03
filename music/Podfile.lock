@@ -1,0 +1,16 @@
+PODS:
+  - MySqlSwiftNative (1.0.10)
+
+DEPENDENCIES:
+  - MySqlSwiftNative (~> 1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MySqlSwiftNative
+
+SPEC CHECKSUMS:
+  MySqlSwiftNative: 25d6d8c5db9d114a9b839aa5cb7de6d1f460f596
+
+PODFILE CHECKSUM: 2590d151c83e2c3160b680a6a19a4828095efd8d
+
+COCOAPODS: 1.5.3
