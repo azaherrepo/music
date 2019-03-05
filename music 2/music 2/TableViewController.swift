@@ -1,6 +1,6 @@
 //
 //  TableViewController.swift
-//  music
+//  music 2
 //
 //  Created by Ayman Zaher on 2019-03-03.
 //  Copyright © 2019 Ayman Zaher. All rights reserved.
@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 struct SongTable {
     var songTitle: String
@@ -15,19 +16,23 @@ struct SongTable {
     var songURL : String
 }
 
-class TableViewController: UITableViewController, XMLParserDelegate {
+class TableViewController: UITableViewController, XMLParserDelegate, UISearchBarDelegate {
     
+    @IBOutlet weak var searchBarS: UISearchBar!
     var songs: [SongTable] = []
+    var filtered: [SongTable] = []
     var elementName: String = String()
     var songTitle = String()
     var songArtist = String()
     var songURL = String()
-    var player: AVPlayer?
-    var iplayer: AVPlayerItem?
+    var currentRow = Int()
+    var searchActive : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBarS.delegate = self
+        filtered = songs
         if let path = Bundle.main.url(forResource: "songs", withExtension: "xml") {
             if let parser = XMLParser(contentsOf: path) {
                 parser.delegate = self
@@ -70,6 +75,7 @@ class TableViewController: UITableViewController, XMLParserDelegate {
                 songURL += data
             }
         }
+        filtered = songs
     }
     
     // MARK: - Table view data source
@@ -81,14 +87,14 @@ class TableViewController: UITableViewController, XMLParserDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return the number of rows
-        return songs.count
+        return filtered.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let songT = songs[indexPath.row]
+        let songT = filtered[indexPath.row]
         
         cell.textLabel?.text = songT.songTitle
         cell.detailTextLabel?.text = songT.songArtist
@@ -96,18 +102,100 @@ class TableViewController: UITableViewController, XMLParserDelegate {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("row: \(indexPath.row)")
-        let songT = songs[indexPath.row]
-        let url = URL(string: songT.songURL)
-        player?.pause()
-        let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
-        player = AVPlayer(playerItem: playerItem)
-        
-        let playerLayer=AVPlayerLayer(player: player!)
-        playerLayer.frame=CGRect(x:0, y:0, width:10, height:50)
-        self.view.layer.addSublayer(playerLayer)
-        player!.play()
+        currentRow = indexPath.row
+        let songT = filtered[indexPath.row]
+        var url = URL(string: songT.songURL)
+        let asset = AVAsset(url: url!)
+        MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+            MusicPlayerManager.shared.Player = AVPlayer(url: url!)
+            MusicPlayerManager.shared.Player?.play()
+            setupRemoteTransportControls()
+            // Define Now Playing Info
+            var nowPlayingInfo = [String : Any]()
+            nowPlayingInfo[MPMediaItemPropertyTitle] = songT.songTitle
+            nowPlayingInfo[MPMediaItemPropertyArtist] = songT.songArtist
+            
+            if let image = UIImage(named: "lockscreen") {
+                nowPlayingInfo[MPMediaItemPropertyArtwork] =
+                    MPMediaItemArtwork(boundsSize: image.size) { size in
+                        return image
+                }
+            }
+            print(MusicPlayerManager.shared.Player.currentItem!.asset.duration)
+            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = MusicPlayerManager.shared.Player.currentTime().seconds
+            nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = MusicPlayerManager.shared.playerItem.asset.duration.seconds
+            nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = MusicPlayerManager.shared.Player.rate
+            
+            // Set the metadata
+            MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+        } catch {
+            print(error)
+        }
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBarS.text != "" {
+        filtered = songs.filter({ (text) -> Bool in
+            return text.songTitle.range(of: searchText, options: .caseInsensitive) != nil
+        })
+        } else {
+            filtered = songs
+        }
+        
+        tableView.reloadData()
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBarS.showsCancelButton = true
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBarS.showsCancelButton = false
+        searchBarS.text = ""
+        searchBarS.resignFirstResponder()
+        filtered = songs
+        tableView.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBarS.showsCancelButton = false
+        searchBarS.resignFirstResponder()
+    }
+    
+    func setupRemoteTransportControls() {
+        // Get the shared MPRemoteCommandCenter
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        // Add handler for Play Command
+        commandCenter.playCommand.addTarget { [unowned self] event in
+            if MusicPlayerManager.shared.Player!.rate == 0.0 {
+                MusicPlayerManager.shared.Player!.play()
+                return .success
+            }
+            return .commandFailed
+        }
+        
+        // Add handler for Pause Command
+        commandCenter.pauseCommand.addTarget { [unowned self] event in
+            if MusicPlayerManager.shared.Player!.rate == 1.0 {
+                MusicPlayerManager.shared.Player!.pause()
+                return .success
+            }
+            return .commandFailed
+        }
+         
+            
+    }
+    
+    
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -155,3 +243,13 @@ class TableViewController: UITableViewController, XMLParserDelegate {
     */
 
 }
+final class MusicPlayerManager {
+    static let shared = MusicPlayerManager()
+    private init() { }
+    
+    var Player: AVPlayer!
+    var iPlayer: AVPlayerLayer!
+    var playerItem: AVPlayerItem!
+    var paused: Bool = false
+}
+

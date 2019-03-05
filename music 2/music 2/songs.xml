@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<catalog>
+    <song id="0">
+        <title>Nonstop</title>
+        <artist>Drake</artist>
+        <url>https://azaherrepo.github.io/music/files/02%20Nonstop.m4a</url>
+    </song>
+    <song id="1">
+        <title>Elevate</title>
+        <artist>Drake</artist>
+        <url>https://azaherrepo.github.io/music/files/03%20Elevate.m4a</url>
+    </song>
+    <song id="2">
+        <title>Talk Up (feat. JAY-Z)</title>
+        <artist>Drake</artist>
+        <url>https://azaherrepo.github.io/music/files/11%20Talk%20Up%20(feat.%20JAY-Z).m4a</url>
+    </song>
+    <song id="3">
+        <title>Blue Tint</title>
+        <artist>Drake</artist>
+        <url>https://azaherrepo.github.io/music/files/2-08%20Blue%20Tint.m4a</url>
+    </song>
+    <song id="4">
+        <title>In My Feelings</title>
+        <artist>Drake</artist>
+        <url>https://azaherrepo.github.io/music/files/2-09%20In%20My%20Feelings.m4a</url>
+    </song>
+    <song id="5">
+        <title>Don't Matter To Me</title>
+        <artist>Drake</artist>
+        <url>https://azaherrepo.github.io/music/files/2-10%20Don't%20Matter%20To%20Me.m4a</url>
+    </song>
+</catalog>

@@ -15,7 +15,7 @@
 		CF4434F1222BAE17003EECBF /* musicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4434F0222BAE17003EECBF /* musicTests.swift */; };
 		CF4434FC222BAE17003EECBF /* musicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4434FB222BAE17003EECBF /* musicUITests.swift */; };
 		CF44350A222BAEF2003EECBF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF443509222BAEF2003EECBF /* TableViewController.swift */; };
-		CF44350C222BAF50003EECBF /* books.xml in Resources */ = {isa = PBXBuildFile; fileRef = CF44350B222BAF50003EECBF /* books.xml */; };
+		CF44350C222BAF50003EECBF /* songs.xml in Resources */ = {isa = PBXBuildFile; fileRef = CF44350B222BAF50003EECBF /* songs.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		CF4434FB222BAE17003EECBF /* musicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicUITests.swift; sourceTree = "<group>"; };
 		CF4434FD222BAE17003EECBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF443509222BAEF2003EECBF /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		CF44350B222BAF50003EECBF /* books.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = books.xml; sourceTree = "<group>"; };
+		CF44350B222BAF50003EECBF /* songs.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = songs.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 				CF4434DB222BAE17003EECBF /* AppDelegate.swift */,
 				CF4434DD222BAE17003EECBF /* ViewController.swift */,
 				CF4434DF222BAE17003EECBF /* Main.storyboard */,
-				CF44350B222BAF50003EECBF /* books.xml */,
+				CF44350B222BAF50003EECBF /* songs.xml */,
 				CF443509222BAEF2003EECBF /* TableViewController.swift */,
 				CF4434E2222BAE17003EECBF /* Assets.xcassets */,
 				CF4434E4222BAE17003EECBF /* LaunchScreen.storyboard */,
@@ -237,7 +237,7 @@
 			files = (
 				CF4434E6222BAE17003EECBF /* LaunchScreen.storyboard in Resources */,
 				CF4434E3222BAE17003EECBF /* Assets.xcassets in Resources */,
-				CF44350C222BAF50003EECBF /* books.xml in Resources */,
+				CF44350C222BAF50003EECBF /* songs.xml in Resources */,
 				CF4434E1222BAE17003EECBF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
