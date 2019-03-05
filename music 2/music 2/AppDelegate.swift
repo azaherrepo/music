@@ -40,6 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
+        let destinationFileUrl = documentsUrl.appendingPathComponent("songs.xml")
+        do {
+            try FileManager.default.removeItem(at: destinationFileUrl)
+        } catch ( let errors) {
+            print("Error \(errors)")
+        }
     }
 
 

@@ -37,12 +37,6 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         // Create destination URL
         let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
         let destinationFileUrl = documentsUrl.appendingPathComponent("songs.xml")
-        //do {
-          //  try FileManager.default.removeItem(at: destinationFileUrl)
-        //} catch (let writeErrorRM) {
-          //  print ("Error removing file \(destinationFileUrl) : \(writeErrorRM)")
-        //}
-        
         //Create URL to the source file you want to download
         let fileURL = URL(string: "https://azaherrepo.github.io/music/songs.xml")
         
