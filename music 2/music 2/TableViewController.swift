@@ -33,8 +33,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         
         searchBarS.delegate = self
         filtered = songs
-        
-        // Create destination URL
+            // Create destination URL
         let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
         let destinationFileUrl = documentsUrl.appendingPathComponent("songs.xml")
         //Create URL to the source file you want to download
@@ -63,11 +62,11 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
             }
         }
         task.resume()
-    
-            if let parser = XMLParser(contentsOf: destinationFileUrl) {
-                parser.delegate = self
-                parser.parse()
-            }
+        
+        if let parser = XMLParser(contentsOf: destinationFileUrl) {
+            parser.delegate = self
+            parser.parse()
+        }
         
     }
     // 1
