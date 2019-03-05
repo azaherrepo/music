@@ -33,12 +33,48 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         
         searchBarS.delegate = self
         filtered = songs
-        if let path = Bundle.main.url(forResource: "songs", withExtension: "xml") {
-            if let parser = XMLParser(contentsOf: path) {
+        
+        // Create destination URL
+        let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
+        let destinationFileUrl = documentsUrl.appendingPathComponent("songs.xml")
+        //do {
+          //  try FileManager.default.removeItem(at: destinationFileUrl)
+        //} catch (let writeErrorRM) {
+          //  print ("Error removing file \(destinationFileUrl) : \(writeErrorRM)")
+        //}
+        
+        //Create URL to the source file you want to download
+        let fileURL = URL(string: "https://azaherrepo.github.io/music/songs.xml")
+        
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig)
+        
+        let request = URLRequest(url:fileURL!)
+        
+        let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
+            if let tempLocalUrl = tempLocalUrl, error == nil {
+                // Success
+                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+                    print("Successfully downloaded. Status code: \(statusCode)")
+                }
+                
+                do {
+                    try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
+                } catch (let writeError) {
+                    print("Error creating a file \(destinationFileUrl) : \(writeError)")
+                }
+                
+            } else {
+                print("Error took place while downloading a file. Error description: %@", error?.localizedDescription);
+            }
+        }
+        task.resume()
+    
+            if let parser = XMLParser(contentsOf: destinationFileUrl) {
                 parser.delegate = self
                 parser.parse()
             }
-        }
+        
     }
     // 1
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
