@@ -35,7 +35,10 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         filtered = songs
             // Create destination URL
         let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
+        let documentString = NSSearchPathForDirectoriesInDomains(.documentDirectory,  .userDomainMask, true)[0] as String
+        let url = NSURL(fileURLWithPath: documentString)
         let destinationFileUrl = documentsUrl.appendingPathComponent("songs.xml")
+        
         //Create URL to the source file you want to download
         let fileURL = URL(string: "https://azaherrepo.github.io/music/songs.xml")
         
@@ -49,12 +52,23 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
                 // Success
                 if let statusCode = (response as? HTTPURLResponse)?.statusCode {
                     print("Successfully downloaded. Status code: \(statusCode)")
-                }
                 
+                if let pathComponent = url.appendingPathComponent("songs.xml") {
+                    let filePath = pathComponent.path
+                    if FileManager.default.fileExists(atPath: filePath) {
+                        do{
+                            try FileManager.default.replaceItemAt(destinationFileUrl, withItemAt: tempLocalUrl)
+                        } catch (let errors) {
+                            print("Error creating a file \(destinationFileUrl) : \(errors)")
+                        }
+                    } else {
                 do {
                     try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
                 } catch (let writeError) {
                     print("Error creating a file \(destinationFileUrl) : \(writeError)")
+                }
+                    }
+                }
                 }
                 
             } else {
