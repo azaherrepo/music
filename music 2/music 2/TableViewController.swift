@@ -148,7 +148,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         let songT = filtered[indexPath.row]
         var url = URL(string: songT.songURL)
         let asset = AVAsset(url: url!)
-        MusicPlayerManager.shared.artwork = ""
+        MusicPlayerManager.shared.artwork = "https://raw.githubusercontent.com/azaherrepo/music/gh-pages/art/scorpion.jpg"
         MusicPlayerManager.shared.songTitle = songT.songTitle
         MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
         do {
