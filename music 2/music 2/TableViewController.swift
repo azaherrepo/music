@@ -148,6 +148,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         let songT = filtered[indexPath.row]
         var url = URL(string: songT.songURL)
         let asset = AVAsset(url: url!)
+        MusicPlayerManager.shared.artwork = ""
         MusicPlayerManager.shared.songTitle = songT.songTitle
         MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
         do {
@@ -294,6 +295,7 @@ final class MusicPlayerManager {
     var iPlayer: AVPlayerLayer!
     var playerItem: AVPlayerItem!
     var paused: Bool = false
-    var songTitle: String = "name"
+    var songTitle: String = "Nothing Playing"
+    var artwork: String = "link"
 }
 
