@@ -13,8 +13,9 @@ let player = MusicPlayerManager.shared.Player
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewDidAppear(_ animated: Bool) {
         songTitle.text = MusicPlayerManager.shared.songTitle
-        
     }
     @IBOutlet weak var songTitle: UILabel!
     @IBAction func playbttn(_ sender: Any) {
