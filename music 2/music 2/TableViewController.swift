@@ -156,6 +156,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         print(songT.songArtwork)
         MusicPlayerManager.shared.artwork = songT.songArtwork
         MusicPlayerManager.shared.songTitle = songT.songTitle
+        MusicPlayerManager.shared.songArtist = songT.songArtist
         MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
@@ -303,5 +304,6 @@ final class MusicPlayerManager {
     var paused: Bool = false
     var songTitle: String = "Nothing Playing"
     var artwork: String = "link"
+    var songArtist: String = ""
 }
 

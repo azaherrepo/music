@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		CF4435D4222C4F96003EECBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4435D3222C4F96003EECBF /* AppDelegate.swift */; };
 		CF4435D6222C4F96003EECBF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4435D5222C4F96003EECBF /* FirstViewController.swift */; };
-		CF4435D8222C4F96003EECBF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4435D7222C4F96003EECBF /* SecondViewController.swift */; };
 		CF4435DB222C4F96003EECBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF4435D9222C4F96003EECBF /* Main.storyboard */; };
 		CF4435DD222C4F96003EECBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF4435DC222C4F96003EECBF /* Assets.xcassets */; };
 		CF4435E0222C4F96003EECBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF4435DE222C4F96003EECBF /* LaunchScreen.storyboard */; };
 		CF4435EB222C4F96003EECBF /* music_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4435EA222C4F96003EECBF /* music_2Tests.swift */; };
 		CF4435F6222C4F96003EECBF /* music_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4435F5222C4F96003EECBF /* music_2UITests.swift */; };
-		CF443604222C4FDB003EECBF /* songs.xml in Resources */ = {isa = PBXBuildFile; fileRef = CF443603222C4FDB003EECBF /* songs.xml */; };
 		CF443606222C4FE8003EECBF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF443605222C4FE8003EECBF /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +38,6 @@
 		CF4435D0222C4F96003EECBF /* music 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "music 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF4435D3222C4F96003EECBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF4435D5222C4F96003EECBF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		CF4435D7222C4F96003EECBF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		CF4435DA222C4F96003EECBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF4435DC222C4F96003EECBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF4435DF222C4F96003EECBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,7 +48,6 @@
 		CF4435F1222C4F96003EECBF /* music 2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "music 2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF4435F5222C4F96003EECBF /* music_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_2UITests.swift; sourceTree = "<group>"; };
 		CF4435F7222C4F96003EECBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF443603222C4FDB003EECBF /* songs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = songs.xml; sourceTree = "<group>"; };
 		CF443605222C4FE8003EECBF /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,10 +99,8 @@
 		CF4435D2222C4F96003EECBF /* music 2 */ = {
 			isa = PBXGroup;
 			children = (
-				CF443603222C4FDB003EECBF /* songs.xml */,
 				CF4435D3222C4F96003EECBF /* AppDelegate.swift */,
 				CF4435D5222C4F96003EECBF /* FirstViewController.swift */,
-				CF4435D7222C4F96003EECBF /* SecondViewController.swift */,
 				CF4435D9222C4F96003EECBF /* Main.storyboard */,
 				CF4435DC222C4F96003EECBF /* Assets.xcassets */,
 				CF4435DE222C4F96003EECBF /* LaunchScreen.storyboard */,
@@ -245,7 +239,6 @@
 			files = (
 				CF4435E0222C4F96003EECBF /* LaunchScreen.storyboard in Resources */,
 				CF4435DD222C4F96003EECBF /* Assets.xcassets in Resources */,
-				CF443604222C4FDB003EECBF /* songs.xml in Resources */,
 				CF4435DB222C4F96003EECBF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF4435D8222C4F96003EECBF /* SecondViewController.swift in Sources */,
 				CF4435D4222C4F96003EECBF /* AppDelegate.swift in Sources */,
 				CF4435D6222C4F96003EECBF /* FirstViewController.swift in Sources */,
 				CF443606222C4FE8003EECBF /* TableViewController.swift in Sources */,
