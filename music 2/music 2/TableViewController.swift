@@ -14,6 +14,7 @@ struct SongTable {
     var songTitle: String
     var songArtist: String
     var songURL : String
+    var songArtwork : String
 }
 class TableViewController: UITableViewController, XMLParserDelegate, UISearchBarDelegate {
     
@@ -24,6 +25,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
     var songTitle = String()
     var songArtist = String()
     var songURL = String()
+    var songArtwork = String()
     var currentRow = Int()
     var searchActive : Bool = false
     
@@ -89,6 +91,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
             songTitle = String()
             songArtist = String()
             songURL = String()
+            songArtwork = String()
             
         }
         
@@ -99,7 +102,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
     // 2
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "song" {
-            let song = SongTable(songTitle: songTitle, songArtist: songArtist, songURL: songURL)
+            let song = SongTable(songTitle: songTitle, songArtist: songArtist, songURL: songURL, songArtwork: songArtwork)
             songs.append(song)
         }
     }
@@ -115,6 +118,8 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
                 songArtist += data
             } else if self.elementName == "url" {
                 songURL += data
+            } else if self.elementName == "artwork" {
+                songArtwork += data
             }
         }
         filtered = songs
@@ -148,7 +153,8 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         let songT = filtered[indexPath.row]
         var url = URL(string: songT.songURL)
         let asset = AVAsset(url: url!)
-        MusicPlayerManager.shared.artwork = "https://raw.githubusercontent.com/azaherrepo/music/gh-pages/art/scorpion.jpg"
+        print(songT.songArtwork)
+        MusicPlayerManager.shared.artwork = songT.songArtwork
         MusicPlayerManager.shared.songTitle = songT.songTitle
         MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
         do {
