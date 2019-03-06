@@ -13,8 +13,10 @@ let player = MusicPlayerManager.shared.Player
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        songTitle.text = MusicPlayerManager.shared.songTitle
         
     }
+    @IBOutlet weak var songTitle: UILabel!
     @IBAction func playbttn(_ sender: Any) {
         print(MusicPlayerManager.shared.Player!.rate)
         if MusicPlayerManager.shared.Player!.rate == 0 {

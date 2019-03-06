@@ -15,7 +15,6 @@ struct SongTable {
     var songArtist: String
     var songURL : String
 }
-
 class TableViewController: UITableViewController, XMLParserDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var searchBarS: UISearchBar!
@@ -149,6 +148,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         let songT = filtered[indexPath.row]
         var url = URL(string: songT.songURL)
         let asset = AVAsset(url: url!)
+        MusicPlayerManager.shared.songTitle = songT.songTitle
         MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
@@ -294,5 +294,6 @@ final class MusicPlayerManager {
     var iPlayer: AVPlayerLayer!
     var playerItem: AVPlayerItem!
     var paused: Bool = false
+    var songTitle: String = "name"
 }
 
