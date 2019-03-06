@@ -20,7 +20,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNF-7Q-AdD">
                                 <rect key="frame" x="135" y="389" width="104" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play/Pause"/>
+                                <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="playbttn:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Cr5-dh-mJW"/>
                                 </connections>
@@ -43,6 +43,7 @@
                     <tabBarItem key="tabBarItem" title="Now Playing" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="artwork" destination="EGx-6D-dfK" id="ejT-h7-zan"/>
+                        <outlet property="playbttn" destination="gNF-7Q-AdD" id="wwz-j6-DSS"/>
                         <outlet property="songTitle" destination="ZrI-0S-3cw" id="jYh-Hg-86N"/>
                     </connections>
                 </viewController>

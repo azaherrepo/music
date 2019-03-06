@@ -27,15 +27,12 @@ let player = MusicPlayerManager.shared.Player
         downloadImage(from: url)
         print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
     }
+    @IBOutlet weak var playbttn: UIButton!
     @IBOutlet weak var artwork: UIImageView!
     @IBOutlet weak var songTitle: UILabel!
     @IBAction func playbttn(_ sender: Any) {
-        print(MusicPlayerManager.shared.Player!.rate)
-        if MusicPlayerManager.shared.Player!.rate == 0 {
-            MusicPlayerManager.shared.Player!.play()
-        } else {
-            MusicPlayerManager.shared.Player!.pause()
-        }
+        //print(MusicPlayerManager.shared.Player!.rate)
+        print(MusicPlayerManager.shared.playerItem)
     }
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
