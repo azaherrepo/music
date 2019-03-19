@@ -15,6 +15,7 @@ struct SongTable {
     var songArtist: String
     var songURL : String
     var songArtwork : String
+    var songAlbum : String
 }
 class TableViewController: UITableViewController, XMLParserDelegate, UISearchBarDelegate {
     
@@ -26,6 +27,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
     var songArtist = String()
     var songURL = String()
     var songArtwork = String()
+    var songAlbum = String()
     var currentRow = Int()
     var searchActive : Bool = false
     
@@ -84,6 +86,8 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         }
         
     }
+    
+
     // 1
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
@@ -92,6 +96,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
             songArtist = String()
             songURL = String()
             songArtwork = String()
+            songAlbum = String()
             
         }
         
@@ -102,7 +107,7 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
     // 2
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "song" {
-            let song = SongTable(songTitle: songTitle, songArtist: songArtist, songURL: songURL, songArtwork: songArtwork)
+            let song = SongTable(songTitle: songTitle, songArtist: songArtist, songURL: songURL, songArtwork: songArtwork, songAlbum: songAlbum)
             songs.append(song)
         }
     }
@@ -120,6 +125,8 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
                 songURL += data
             } else if self.elementName == "artwork" {
                 songArtwork += data
+            } else if self.elementName == "album" {
+                songAlbum += data
             }
         }
         filtered = songs
@@ -150,6 +157,8 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("row: \(indexPath.row)")
         currentRow = indexPath.row
+        MusicPlayerManager.shared.currentRow = indexPath.row
+        MusicPlayerManager.shared.songArray = songs
         let songT = filtered[indexPath.row]
         var url = URL(string: songT.songURL)
         let asset = AVAsset(url: url!)
@@ -157,35 +166,22 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         MusicPlayerManager.shared.artwork = songT.songArtwork
         MusicPlayerManager.shared.songTitle = songT.songTitle
         MusicPlayerManager.shared.songArtist = songT.songArtist
+        MusicPlayerManager.shared.songAlbum = songT.songAlbum
         MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
             MusicPlayerManager.shared.Player = AVPlayer(url: url!)
             MusicPlayerManager.shared.Player?.play()
             setupRemoteTransportControls()
-            // Define Now Playing Info
-            var nowPlayingInfo = [String : Any]()
-            nowPlayingInfo[MPMediaItemPropertyTitle] = songT.songTitle
-            nowPlayingInfo[MPMediaItemPropertyArtist] = songT.songArtist
-            
-            if let image = UIImage(named: "lockscreen") {
-                nowPlayingInfo[MPMediaItemPropertyArtwork] =
-                    MPMediaItemArtwork(boundsSize: image.size) { size in
-                        return image
-                }
-            }
-            print(MusicPlayerManager.shared.Player.currentItem!.asset.duration)
-            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = MusicPlayerManager.shared.Player.currentTime().seconds
-            nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = MusicPlayerManager.shared.playerItem.asset.duration.seconds
-            nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = MusicPlayerManager.shared.Player.rate
-            
-            // Set the metadata
-            MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+            downloadArtwork()
         } catch {
             print(error)
         }
     }
     
+    @IBAction func downloadBttn(_ sender: Any) {
+        
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBarS.text != "" {
         filtered = songs.filter({ (text) -> Bool in
@@ -197,6 +193,8 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         
         tableView.reloadData()
     }
+    
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBarS.showsCancelButton = true
     }
@@ -233,10 +231,97 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
             }
             return .commandFailed
         }
-         
+        commandCenter.nextTrackCommand.addTarget { [unowned self] event in
+            MusicPlayerManager.shared.currentRow += 1
+            var songT = MusicPlayerManager.shared.songArray[MusicPlayerManager.shared.currentRow]
+            var url = URL(string: songT.songURL)
+            let asset = AVAsset(url: url!)
+            print(songT.songArtwork)
+            MusicPlayerManager.shared.artwork = songT.songArtwork
+            MusicPlayerManager.shared.songTitle = songT.songTitle
+            MusicPlayerManager.shared.songArtist = songT.songArtist
+            MusicPlayerManager.shared.songAlbum = songT.songAlbum
+            MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+                MusicPlayerManager.shared.Player = AVPlayer(url: url!)
+                MusicPlayerManager.shared.Player?.play()
+                self.downloadArtwork()
+            } catch {
+                print(error)
+            }
+            return .success
+        }
+        commandCenter.previousTrackCommand.addTarget { [unowned self] event in
+            MusicPlayerManager.shared.currentRow -= 1
+            var songT = MusicPlayerManager.shared.songArray[MusicPlayerManager.shared.currentRow]
+            var url = URL(string: songT.songURL)
+            let asset = AVAsset(url: url!)
+            print(songT.songArtwork)
+            MusicPlayerManager.shared.artwork = songT.songArtwork
+            MusicPlayerManager.shared.songTitle = songT.songTitle
+            MusicPlayerManager.shared.songArtist = songT.songArtist
+            MusicPlayerManager.shared.songAlbum = songT.songAlbum
+            MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+                MusicPlayerManager.shared.Player = AVPlayer(url: url!)
+                MusicPlayerManager.shared.Player?.play()
+                self.downloadArtwork()
+            } catch {
+                print(error)
             
     }
-    
+            return .success
+        }
+    }
+    func setupMetaData(image: Data) {
+        var songT = MusicPlayerManager.shared.songArray[MusicPlayerManager.shared.currentRow]
+        var url = URL(string: songT.songURL)
+        do {
+            // Define Now Playing Info
+            var nowPlayingInfo = [String : Any]()
+            nowPlayingInfo[MPMediaItemPropertyTitle] = songT.songTitle
+            nowPlayingInfo[MPMediaItemPropertyArtist] = songT.songArtist
+            
+            print(MusicPlayerManager.shared.Player.currentItem!.asset.duration)
+            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = MusicPlayerManager.shared.Player.currentTime().seconds
+            nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = MusicPlayerManager.shared.playerItem.asset.duration.seconds
+            nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = MusicPlayerManager.shared.Player.rate
+            
+            if let artimage = UIImage(data: image){
+                nowPlayingInfo[MPMediaItemPropertyArtwork] =
+                    MPMediaItemArtwork(boundsSize: artimage.size) { size in
+                        return artimage
+                }
+            }
+            
+            // Set the metadata
+            MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+        } catch {
+            print(error)
+        }
+    }
+    func downloadArtwork() {
+        func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+            URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+        }
+        func downloadImage(from url: URL) {
+            print("Download Started")
+            getData(from: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                print(response?.suggestedFilename ?? url.lastPathComponent)
+                print("Download Finished")
+                DispatchQueue.main.async() {
+                    self.setupMetaData(image: data)
+                }
+            }
+        }
+        print("Begin of code")
+        let url = URL(string: MusicPlayerManager.shared.artwork)!
+        downloadImage(from: url)
+        print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
+    }
     
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -292,8 +377,10 @@ class TableViewController: UITableViewController, XMLParserDelegate, UISearchBar
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
 }
+
 final class MusicPlayerManager {
     static let shared = MusicPlayerManager()
     private init() { }
@@ -305,5 +392,8 @@ final class MusicPlayerManager {
     var songTitle: String = "Nothing Playing"
     var artwork: String = "link"
     var songArtist: String = ""
+    var songAlbum: String = ""
+    var currentRow: Int = 0
+    var songArray: [SongTable] = []
 }
 

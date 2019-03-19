@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "play-1173495_960_720.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "NowPlaying-Transport-Play@2x.png",
       "scale" : "2x"
     },
     {
