@@ -148,7 +148,7 @@ class DownloadedViewController: UIViewController, XMLParserDelegate {
         MusicPlayerManager.shared.songArtist = songT.songArtist
         MusicPlayerManager.shared.songAlbum = songT.songAlbum
         MusicPlayerManager.shared.playerItem = AVPlayerItem(asset: asset)
-        setupMetaData(image: MusicPlayerManager.shared.artworkImage)
+        
         
         print(Float(MusicPlayerManager.shared.playerItem.asset.duration.seconds))
         
@@ -156,6 +156,7 @@ class DownloadedViewController: UIViewController, XMLParserDelegate {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
             MusicPlayerManager.shared.Player = AVPlayer(url: url)
             MusicPlayerManager.shared.Player?.play()
+            setupMetaData(image: MusicPlayerManager.shared.artworkImage)
              NotificationCenter.default.addObserver(self, selector: #selector(hitEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: MusicPlayerManager.shared.Player.currentItem)
         } catch {
             print(error)

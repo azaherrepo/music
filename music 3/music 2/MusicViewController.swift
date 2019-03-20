@@ -71,6 +71,7 @@ class MusicViewController: UIViewController, XMLParserDelegate {
                         if FileManager.default.fileExists(atPath: filePath) {
                             do{
                                 try FileManager.default.replaceItemAt(destinationFileUrl, withItemAt: tempLocalUrl)
+
                             } catch (let errors) {
                                 print("Error creating a file \(destinationFileUrl) : \(errors)")
                             }
@@ -356,7 +357,6 @@ class MusicViewController: UIViewController, XMLParserDelegate {
             
             return .success
         }
-        
     }
     func setupMetaData(image: Data) {
         var songT = MusicPlayerManager.shared.filteredArray[MusicPlayerManager.shared.currentRow]

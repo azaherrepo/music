@@ -24,7 +24,6 @@ class FirstViewController: UIViewController {
         banerView.adUnitID = "ca-app-pub-6780980839977049/4459922671"
         banerView.rootViewController = self
         banerView.load(GADRequest())
-        print(GADRequest().contentURL)
     }
     override func viewDidAppear(_ animated: Bool) {
 
@@ -135,6 +134,11 @@ class FirstViewController: UIViewController {
     @IBAction func seekBarAction(_ sender: Any) {
         let newTime = CMTime(seconds: Double(seekBar.value), preferredTimescale: 2)
         MusicPlayerManager.shared.Player.seek(to: newTime)
+        if MusicPlayerManager.shared.downloaded == false {
+            downloadArtwork()
+        } else {
+            setupMetaDataDownloaded(image: MusicPlayerManager.shared.artworkImage)
+        }
     }
     func streamNext() {
         if MusicPlayerManager.shared.currentRow != MusicPlayerManager.shared.filteredArray.count - 1 {
@@ -349,6 +353,7 @@ class FirstViewController: UIViewController {
             }
         }
     }
+    
     func setupMetaData(image: Data) {
         var songT = MusicPlayerManager.shared.filteredArray[MusicPlayerManager.shared.currentRow]
         var url = URL(string: songT.songURL)

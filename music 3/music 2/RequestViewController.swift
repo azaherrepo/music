@@ -17,7 +17,25 @@ class RequestViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    func checkaConnection() -> Bool {
+        print("Reachability Summary")
+        print("Status:", Network.reachability.status)
+        print("HostName:", Network.reachability.hostname ?? "nil")
+        print("Reachable:", Network.reachability.isReachable)
+        print("Wifi:", Network.reachability.isReachableViaWiFi)
+        switch Network.reachability.status {
+        case .unreachable:
+            return false
+        case .wwan:
+            return true
+        case .wifi:
+            return true
+        }
+        
+    }
+    
     @IBAction func requestBttn(_ sender: Any) {
+        if checkaConnection() == true {
         let url = URL(string: "http://azaher2003-001-site1.1tempurl.com/service.php")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -40,6 +58,22 @@ class RequestViewController: UIViewController {
         }
         task.resume()
         navigationController?.popViewController(animated: true)
+        } else {
+            let alert = UIAlertController(title: "No Connection", message: "Could not send request pleas check your internet connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-    
 }
