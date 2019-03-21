@@ -56,7 +56,7 @@ class ViewController: NSViewController {
                         song.addChild(XMLElement(name: "album", stringValue: albumNameData as String))
                         let string = "\(albumNameData).jpg"
                         let newString = string.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
-                        song.addChild(XMLElement(name: "artwork", stringValue: "https://azaherrepo.github.io/music/files/\(newString)"))
+                        song.addChild(XMLElement(name: "artwork", stringValue: "https://azaherrepo.github.io/music/art/\(newString)"))
                     }
                 }
                 
