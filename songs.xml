@@ -1,6 +1,13 @@
 
 <catalog>
     <song>
+        <title>Bad Girls (feat. Gucci Mane)</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/02%20Bad%20Girls%20(feat.%20Gucci%20Mane).m4a</url>
+    </song>
+    <song>
         <title>Feeling</title>
         <album>Death Race for Love</album>
         <artwork>https://azaherrepo.github.io/music/art/Death%20Race%20for%20Love.jpg</artwork>
@@ -22,11 +29,25 @@
         <url>https://azaherrepo.github.io/music/files/01%20Thotiana%20(Remix)%20[feat.%20Cardi%20B.m4a</url>
     </song>
     <song>
+        <title>Highs and Lows</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/12%20Highs%20and%20Lows.m4a</url>
+    </song>
+    <song>
         <title>Can't Take a Joke</title>
         <album>Scorpion</album>
         <artwork>https://azaherrepo.github.io/music/art/Scorpion.jpg</artwork>
         <artist>Drake</artist>
         <url>https://azaherrepo.github.io/music/files/09%20Can't%20Take%20a%20Joke.m4a</url>
+    </song>
+    <song>
+        <title>Nowadays, Pt. 2 (feat. Landon Cube)</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/04%20Nowadays,%20Pt.%202%20(feat.%20Landon%20Cub.m4a</url>
     </song>
     <song>
         <title>Who Shot Cupid?</title>
@@ -148,6 +169,13 @@
         <url>https://azaherrepo.github.io/music/files/01%20Empty.m4a</url>
     </song>
     <song>
+        <title>I</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/01%20I.m4a</url>
+    </song>
+    <song>
         <title>Jaded</title>
         <album>Scorpion</album>
         <artwork>https://azaherrepo.github.io/music/art/Scorpion.jpg</artwork>
@@ -160,6 +188,20 @@
         <artwork>https://azaherrepo.github.io/music/art/Scorpion.jpg</artwork>
         <artist>Drake</artist>
         <url>https://azaherrepo.github.io/music/files/2-08%20Blue%20Tint.m4a</url>
+    </song>
+    <song>
+        <title>Through the Motions</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/11%20Through%20the%20Motions.m4a</url>
+    </song>
+    <song>
+        <title>Stop the Madness (feat. Gunna)</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/07%20Stop%20the%20Madness%20(feat.%20Gunna).m4a</url>
     </song>
     <song>
         <title>Emotionless</title>
@@ -183,6 +225,13 @@
         <url>https://azaherrepo.github.io/music/files/16%20The%20Bees%20Knees.m4a</url>
     </song>
     <song>
+        <title>When I'm Wasted</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/09%20When%20I'm%20Wasted.m4a</url>
+    </song>
+    <song>
         <title>fake smile</title>
         <album>thank u, next</album>
         <artwork>https://azaherrepo.github.io/music/art/thank%20u,%20next.jpg</artwork>
@@ -202,6 +251,13 @@
         <artwork>https://azaherrepo.github.io/music/art/Scorpion.jpg</artwork>
         <artist>Drake</artist>
         <url>https://azaherrepo.github.io/music/files/2-07%20That's%20How%20You%20Feel.m4a</url>
+    </song>
+    <song>
+        <title>Ok 4 Now</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/08%20Ok%204%20Now.m4a</url>
     </song>
     <song>
         <title>ON GOD (feat. Young Thug)</title>
@@ -225,6 +281,13 @@
         <url>https://azaherrepo.github.io/music/files/05%20God's%20Plan.m4a</url>
     </song>
     <song>
+        <title>Breathe</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/03%20Breathe.m4a</url>
+    </song>
+    <song>
         <title>Make Believe</title>
         <album>Death Race for Love</album>
         <artwork>https://azaherrepo.github.io/music/art/Death%20Race%20for%20Love.jpg</artwork>
@@ -237,6 +300,13 @@
         <artwork>https://azaherrepo.github.io/music/art/Death%20Race%20for%20Love.jpg</artwork>
         <artist>Juice WRLD</artist>
         <url>https://azaherrepo.github.io/music/files/05%20Fast.m4a</url>
+    </song>
+    <song>
+        <title>Name in the Sand</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/13%20Name%20in%20the%20Sand.m4a</url>
     </song>
     <song>
         <title>Talk Up (feat. JAY-Z)</title>
@@ -253,6 +323,13 @@
         <url>https://azaherrepo.github.io/music/files/19%20Won't%20Let%20Go.m4a</url>
     </song>
     <song>
+        <title>No Rainy Days</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/14%20No%20Rainy%20Days.m4a</url>
+    </song>
+    <song>
         <title>Survival</title>
         <album>Scorpion</album>
         <artwork>https://azaherrepo.github.io/music/art/Scorpion.jpg</artwork>
@@ -267,6 +344,13 @@
         <url>https://azaherrepo.github.io/music/files/2-10%20Don't%20Matter%20To%20Me.m4a</url>
     </song>
     <song>
+        <title>Flooded</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/05%20Flooded.m4a</url>
+    </song>
+    <song>
         <title>Maze</title>
         <album>Death Race for Love</album>
         <artwork>https://azaherrepo.github.io/music/art/Death%20Race%20for%20Love.jpg</artwork>
@@ -279,6 +363,13 @@
         <artwork>https://azaherrepo.github.io/music/art/thank%20u,%20next.jpg</artwork>
         <artist>Ariana Grande</artist>
         <url>https://azaherrepo.github.io/music/files/10%207%20rings.m4a</url>
+    </song>
+    <song>
+        <title>Mansion</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/10%20Mansion.m4a</url>
     </song>
     <song>
         <title>Nonstop</title>
@@ -300,6 +391,13 @@
         <artwork>https://azaherrepo.github.io/music/art/Scorpion.jpg</artwork>
         <artist>Drake</artist>
         <url>https://azaherrepo.github.io/music/files/2-01%20Peak.m4a</url>
+    </song>
+    <song>
+        <title>Blue Strips</title>
+        <album>Shelby</album>
+        <artwork>https://azaherrepo.github.io/music/art/Shelby.jpg</artwork>
+        <artist>Lil Skies</artist>
+        <url>https://azaherrepo.github.io/music/files/06%20Blue%20Strips.m4a</url>
     </song>
     <song>
         <title>imagine</title>

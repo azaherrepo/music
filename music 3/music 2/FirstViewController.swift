@@ -26,11 +26,13 @@ class FirstViewController: UIViewController {
         banerView.load(GADRequest())
     }
     override func viewDidAppear(_ animated: Bool) {
-
-        songTitle.text = MusicPlayerManager.shared.songTitle
+        let titleString = MusicPlayerManager.shared.songTitle
+        let editedTitle = titleString.replacingOccurrences(of: "&", with: " & ", options: .literal, range: nil)
+        songTitle.text = editedTitle
         if MusicPlayerManager.shared.playerItem != nil {
         var songInfo: String = "\(MusicPlayerManager.shared.songArtist) -- \(MusicPlayerManager.shared.songAlbum)"
-            songArtist.text = songInfo
+            let editedSongInfo = songInfo.replacingOccurrences(of: "&", with: " & ", options: .literal, range: nil)
+            songArtist.text = editedSongInfo
             print("\(Int(MusicPlayerManager.shared.playerItem.asset.duration.seconds)/60):\(Int(MusicPlayerManager.shared.playerItem.asset.duration.seconds)%60)")
             seekBar.minimumValue = 0
             seekBar.maximumValue = Float(MusicPlayerManager.shared.playerItem.asset.duration.seconds)
@@ -360,8 +362,12 @@ class FirstViewController: UIViewController {
         do {
             // Define Now Playing Info
             var nowPlayingInfo = [String : Any]()
-            nowPlayingInfo[MPMediaItemPropertyTitle] = songT.songTitle
-            nowPlayingInfo[MPMediaItemPropertyArtist] = songT.songArtist
+            let titleString = songT.songTitle
+            let editedTitle = titleString.replacingOccurrences(of: "&", with: " & ", options: .literal, range: nil)
+            let artistString = songT.songArtist
+            let editedArtist = artistString.replacingOccurrences(of: "&", with: " & ", options: .literal, range: nil)
+            nowPlayingInfo[MPMediaItemPropertyTitle] = editedTitle
+            nowPlayingInfo[MPMediaItemPropertyArtist] = editedArtist
             
             print(MusicPlayerManager.shared.Player.currentItem!.asset.duration)
             nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = MusicPlayerManager.shared.Player.currentTime().seconds

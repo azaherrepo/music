@@ -364,8 +364,12 @@ class MusicViewController: UIViewController, XMLParserDelegate {
         do {
             // Define Now Playing Info
             var nowPlayingInfo = [String : Any]()
-            nowPlayingInfo[MPMediaItemPropertyTitle] = songT.songTitle
-            nowPlayingInfo[MPMediaItemPropertyArtist] = songT.songArtist
+            let titleString = songT.songTitle
+            let editedTitle = titleString.replacingOccurrences(of: "&", with: " & ", options: .literal, range: nil)
+            let artistString = songT.songArtist
+            let editedArtist = artistString.replacingOccurrences(of: "&", with: " & ", options: .literal, range: nil)
+            nowPlayingInfo[MPMediaItemPropertyTitle] = editedTitle
+            nowPlayingInfo[MPMediaItemPropertyArtist] = editedArtist
             
             print(MusicPlayerManager.shared.Player.currentItem!.asset.duration)
             nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = MusicPlayerManager.shared.Player.currentTime().seconds

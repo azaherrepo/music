@@ -21,8 +21,12 @@ class MusicCell: UITableViewCell {
     var musicItem: SongTable!
     func setMusic(song: SongTable) {
         musicItem = song
-        musicTitle.text = song.songTitle
-        infoLabel.text = song.songArtist
+        let titleString = song.songTitle
+        let editedTitle = titleString.replacingOccurrences(of: "&", with: " & ", options: .literal, range: nil)
+        let artistString = song.songArtist
+        let editedArtist = artistString.replacingOccurrences(of: "&", with: " & ", options: .literal, range: nil)
+        musicTitle.text = editedTitle
+        infoLabel.text = editedArtist
     }
     @IBAction func downloadBttn(_ sender: Any) {
         delegate?.tappedDownloadButton(musicitem: musicItem)

@@ -14,6 +14,17 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+    }
+
+    override var representedObject: Any? {
+        didSet {
+        // Update the view, if already loaded.
+        }
+    }
+
+    @IBAction func generateBttn(_ sender: Any) {
         let root = XMLElement(name: "catalog")
         let xml = XMLDocument(rootElement: root)
         let completePath = "/Users/aymanzaher/Documents/GitHub/music/files"
@@ -31,7 +42,7 @@ class ViewController: NSViewController {
                 var asset = AVAsset(url: currentFile as URL) as AVAsset
                 let song = XMLElement(name: "song")
                 root.addChild(song)
-
+                
                 for metaDataItems in asset.commonMetadata {
                     //getting the title of the song
                     if metaDataItems.commonKey!.rawValue == "title" {
@@ -61,7 +72,7 @@ class ViewController: NSViewController {
                 }
                 
             }
-
+            
             print(xml.stringValue)
             print(xml.xmlData(options: .nodePrettyPrint))
             var path2 = "/Users/aymanzaher/Documents/GitHub/music/test.xml"
@@ -74,18 +85,8 @@ class ViewController: NSViewController {
         } catch {
             
         }
-        // Do any additional setup after loading the view.
-        
-        
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
-
+    
 }
 
 final class LogDestination: TextOutputStream {
