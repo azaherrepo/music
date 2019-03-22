@@ -8,25 +8,18 @@
         <url>https://azaherrepo.github.io/music/files/02%20Bad%20Girls%20(feat.%20Gucci%20Mane).m4a</url>
     </song>
     <song>
+        <title>Just For Us, Pt. 2</title>
+        <album>FRIENDS KEEP SECRETS</album>
+        <artwork>https://azaherrepo.github.io/music/art/FRIENDS%20KEEP%20SECRETS.jpg</artwork>
+        <artist>benny blanco</artist>
+        <url>https://azaherrepo.github.io/music/files/03%20Just%20For%20Us,%20Pt.%202.m4a</url>
+    </song>
+    <song>
         <title>Otherside</title>
         <album>beerbongs &amp; bentleys</album>
         <artwork>https://azaherrepo.github.io/music/art/beerbongs%20&amp;%20bentleys.jpg</artwork>
         <artist>Post Malone</artist>
         <url>https://azaherrepo.github.io/music/files/11%20Otherside.m4a</url>
-    </song>
-    <song>
-        <title>Thotiana</title>
-        <album>Famous Cryp</album>
-        <artwork>https://azaherrepo.github.io/music/art/thotiana%20remix.jpg</artwork>
-        <artist>Blueface</artist>
-        <url>https://azaherrepo.github.io/music/files/03%20Thotiana.m4a</url>
-    </song>
-    <song>
-        <title>Roses (feat. Brendon Urie)</title>
-        <album>FRIENDS KEEP SECRETS</album>
-        <artwork>https://azaherrepo.github.io/music/art/thotiana%20remix.jpg</artwork>
-        <artist>Juice WRLD</artist>
-        <url>https://azaherrepo.github.io/music/files/02%20Roses%20(feat.%20Brendon%20Urie).m4a</url>
     </song>
     <song>
         <title>Feeling</title>
@@ -92,6 +85,13 @@
         <url>https://azaherrepo.github.io/music/files/08%20Psycho%20(feat.%20Ty%20Dolla%20$ign).m4a</url>
     </song>
     <song>
+        <title>Break My Heart (feat. Ryan Beatty)</title>
+        <album>FRIENDS KEEP SECRETS</album>
+        <artwork>https://azaherrepo.github.io/music/art/FRIENDS%20KEEP%20SECRETS.jpg</artwork>
+        <artist>benny blanco</artist>
+        <url>https://azaherrepo.github.io/music/files/07%20Break%20My%20Heart%20(feat.%20Ryan%20Beatty.m4a</url>
+    </song>
+    <song>
         <title>Who Shot Cupid?</title>
         <album>Death Race for Love</album>
         <artwork>https://azaherrepo.github.io/music/art/Death%20Race%20for%20Love.jpg</artwork>
@@ -153,6 +153,20 @@
         <artwork>https://azaherrepo.github.io/music/art/Scorpion.jpg</artwork>
         <artist>Drake</artist>
         <url>https://azaherrepo.github.io/music/files/06%20I'm%20Upset.m4a</url>
+    </song>
+    <song>
+        <title>More / Diamond Ring (feat. Ty Dolla $ign &amp; 6LACK)</title>
+        <album>FRIENDS KEEP SECRETS</album>
+        <artwork>https://azaherrepo.github.io/music/art/FRIENDS%20KEEP%20SECRETS.jpg</artwork>
+        <artist>benny blanco</artist>
+        <url>https://azaherrepo.github.io/music/files/06%20More%20_%20Diamond%20Ring%20(feat.%20Ty%20Dol.m4a</url>
+    </song>
+    <song>
+        <title>I Found You</title>
+        <album>FRIENDS KEEP SECRETS</album>
+        <artwork>https://azaherrepo.github.io/music/art/FRIENDS%20KEEP%20SECRETS.jpg</artwork>
+        <artist>benny blanco &amp; Calvin Harris</artist>
+        <url>https://azaherrepo.github.io/music/files/04%20I%20Found%20You.m4a</url>
     </song>
     <song>
         <title>Elevate</title>
@@ -561,6 +575,13 @@
         <url>https://azaherrepo.github.io/music/files/09%20Better%20Now.m4a</url>
     </song>
     <song>
+        <title>Better to Lie</title>
+        <album>FRIENDS KEEP SECRETS</album>
+        <artwork>https://azaherrepo.github.io/music/art/FRIENDS%20KEEP%20SECRETS.jpg</artwork>
+        <artist>benny blanco, Jesse &amp; Swae Lee</artist>
+        <url>https://azaherrepo.github.io/music/files/05%20Better%20to%20Lie.m4a</url>
+    </song>
+    <song>
         <title>needy</title>
         <album>thank u, next</album>
         <artwork>https://azaherrepo.github.io/music/art/thank%20u,%20next.jpg</artwork>
@@ -638,6 +659,13 @@
         <url>https://azaherrepo.github.io/music/files/11%20Syphilis.m4a</url>
     </song>
     <song>
+        <title>Thotiana</title>
+        <album>Famous Cryp</album>
+        <artwork>https://azaherrepo.github.io/music/art/Famous%20Cryp.jpg</artwork>
+        <artist>Blueface</artist>
+        <url>https://azaherrepo.github.io/music/files/03%20Thotiana.m4a</url>
+    </song>
+    <song>
         <title>Is There More</title>
         <album>Scorpion</album>
         <artwork>https://azaherrepo.github.io/music/art/Scorpion.jpg</artwork>
@@ -650,6 +678,20 @@
         <artwork>https://azaherrepo.github.io/music/art/Death%20Race%20for%20Love.jpg</artwork>
         <artist>Juice WRLD</artist>
         <url>https://azaherrepo.github.io/music/files/08%20Robbery.m4a</url>
+    </song>
+    <song>
+        <title>Eastside</title>
+        <album>FRIENDS KEEP SECRETS</album>
+        <artwork>https://azaherrepo.github.io/music/art/FRIENDS%20KEEP%20SECRETS.jpg</artwork>
+        <artist>benny blanco, Halsey &amp; Khalid</artist>
+        <url>https://azaherrepo.github.io/music/files/01%20Eastside.m4a</url>
+    </song>
+    <song>
+        <title>Roses (feat. Brendon Urie)</title>
+        <album>FRIENDS KEEP SECRETS</album>
+        <artwork>https://azaherrepo.github.io/music/art/FRIENDS%20KEEP%20SECRETS.jpg</artwork>
+        <artist>benny blanco &amp; Juice WRLD</artist>
+        <url>https://azaherrepo.github.io/music/files/02%20Roses%20(feat.%20Brendon%20Urie).m4a</url>
     </song>
     <song>
         <title>Demonz (feat. Brent Faiyaz) [Interlude]</title>
