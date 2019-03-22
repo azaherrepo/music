@@ -30,7 +30,6 @@ class MusicCell: UITableViewCell {
     }
     @IBAction func downloadBttn(_ sender: Any) {
         delegate?.tappedDownloadButton(musicitem: musicItem)
-        downBttn.isEnabled = false
     }
     
 }

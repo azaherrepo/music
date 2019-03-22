@@ -21,6 +21,7 @@ struct SongTable {
 class MusicViewController: UIViewController, XMLParserDelegate {
     
     var songs: [SongTable] = []
+    var downloaded : [String] = []
     var filtered: [SongTable] = []
     var elementName: String = String()
     var songTitle = String()
@@ -410,6 +411,20 @@ class MusicViewController: UIViewController, XMLParserDelegate {
         print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
     }
     func downloadSong(songTitle: String, songArtist: String, songAlbum: String, songURL: String, songArtwork: String) {
+        var downloadedBool: Bool = false
+        if downloaded != [] {
+            for i in 0 ... downloaded.count - 1 {
+                if downloaded[i] == songTitle {
+                    downloadedBool = true
+                    print("found")
+                }
+                print("finished checked")
+            }
+        }
+        if downloadedBool == false {
+            downloaded.append(songTitle)
+        }
+        if downloadedBool == false {
         print("started download")
         let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
         let documentString = NSSearchPathForDirectoriesInDomains(.documentDirectory,  .userDomainMask, true)[0] as String
@@ -484,6 +499,7 @@ class MusicViewController: UIViewController, XMLParserDelegate {
             }
         }
         task.resume()
+    }
     }
     }
 }
