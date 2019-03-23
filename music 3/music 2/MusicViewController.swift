@@ -448,6 +448,21 @@ class MusicViewController: UIViewController, XMLParserDelegate {
             self.present(alert, animated: true, completion: nil)
         } else {
         //Create URL to the source file you want to download
+            let alert = UIAlertController(title: "\(songTitle) Downloading", message: "\(songTitle) has started Downloading", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            self.present(alert, animated: true, completion: nil)
         let fileURL = URL(string: songURL)
         
         let sessionConfig = URLSessionConfiguration.default
@@ -500,7 +515,23 @@ class MusicViewController: UIViewController, XMLParserDelegate {
         }
         task.resume()
     }
-    }
+        } else {
+            let alert = UIAlertController(title: "\(songTitle) Downloaded", message: "\(songTitle) is already Downloaded", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
