@@ -1,5 +1,11 @@
-
 <catalog>
+    <song>
+        <title>Leave Me Alone</title>
+        <album>Leave Me Alone - Single</album>
+        <artwork>https://azaherrepo.github.io/music/art/Leave%20Me%20Alone%20-%20Single.jpg</artwork>
+        <artist>Flipp Dinero</artist>
+        <url>https://azaherrepo.github.io/music/files/01%20Leave%20Me%20Alone.m4a</url>
+    </song>
     <song>
         <title>Worst Behavior</title>
         <album>Nothing Was the Same</album>
